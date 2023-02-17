@@ -9,7 +9,6 @@ package entidade;
  * @author Mateus Ferraz
  */
 public class Cliente {
-    private double saldo;
     private double conta;
     private String nome;
     private double deposito;
@@ -22,25 +21,14 @@ public class Cliente {
         this.conta = conta;
         this.nome = nome;
     }
-    public Cliente(double conta, String nome, double deposito) {
+    public Cliente(double conta, String nome, double inicialdeposito) {
         this.conta = conta;
         this.nome = nome;
-        this.deposito = deposito;
-    }
-
-    public double getSaldo() {
-        return saldo;
-    }
-
-    public void setSaldo(double saldo) {
-        this.saldo = saldo;
+        deposito(inicialdeposito);
     }
 
     public double getConta() {
         return conta;
-    }
-    public void setConta(double conta){
-        this.conta=conta;
     }
 
     public String getNome() {

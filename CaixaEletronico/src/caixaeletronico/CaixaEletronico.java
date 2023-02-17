@@ -14,7 +14,7 @@ import java.util.Scanner;
  */
 public class CaixaEletronico {
  
-    public static void main(String[] args) {
+    public static void main(String[] args, String inicialdeposito) {
         Locale.setDefault(Locale.US);
 // foi colocado outro scanner devido um problema no nextline do String name 
         Scanner sc = new Scanner(System.in);
@@ -41,8 +41,8 @@ public class CaixaEletronico {
        
         String resposta1 = "";
         String controlador = "";
-
-         System.out.println("Quer continuar com a operção 's' para sim 'n' para não ");
+        
+         System.out.print("Quer continuar com a operção 's' para sim 'n' para não:");
         do {   //perguntando oque o usuario quer fazer no programa.
 
             resposta1 = sc.nextLine();
@@ -53,20 +53,33 @@ public class CaixaEletronico {
                     case "s" -> {
                         System.out.print("Para depositar digite '1' para sacar digite '2':");
                         int escolha = sc.nextInt();
-                        if (escolha == 1) {
-                            System.out.print("Digite o valor do deposito:");
-                            double deposito = input.nextDouble();
-                            cliente.deposito(deposito);
-                            System.out.println(cliente);
+                    switch (escolha) {
+                        case 1:
+                            {
+                                System.out.print("Digite o valor do deposito:");
+                                double deposito = input.nextDouble();
+                                cliente.deposito(deposito);
+                                System.out.println(cliente);
+                                System.out.println("");
+                                System.out.print("Quer continuar com a operção 's' para sim 'n' para não: ");
+                                System.out.println("");
+                                break;
+                            }
+                        case 2:
+                            {
+                                System.out.print("Digite o valor do saque :");
+                                double deposito = input.nextDouble();
+                                cliente.saquesaldo(deposito);
+                                System.out.println(cliente);
+                                System.out.print("Quer continuar com a operção 's' para sim 'n' para não: ");
+                                break;
+                            }
+                        default:
+                            System.out.println("opção invalida");
                             System.out.println("");
-                             System.out.print("Quer continuar com a operção 's' para sim 'n' para não: ");
-                        } else if (escolha == 2) {
-                            System.out.print("Digite o valor do saque :");
-                            double deposito = input.nextDouble();
-                            cliente.saquesaldo(deposito);
-                            System.out.println(cliente);
-                            System.out.print("Quer continuar com a operção 's' para sim 'n' para não: ");
-                        }
+                            break;
+                    }
+                      
                         break;
                     }
                     case "n" -> {
@@ -79,6 +92,7 @@ public class CaixaEletronico {
             }
         } while ("".equals(controlador));{
     } 
+        
         sc.close();
         input.close();
         
