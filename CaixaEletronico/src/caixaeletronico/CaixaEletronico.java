@@ -14,7 +14,7 @@ import java.util.Scanner;
  */
 public class CaixaEletronico {
  
-    public static void main(String[] args, String inicialdeposito) {
+    public static void main(String[] args) {
         Locale.setDefault(Locale.US);
 // foi colocado outro scanner devido um problema no nextline do String name 
         Scanner sc = new Scanner(System.in);
